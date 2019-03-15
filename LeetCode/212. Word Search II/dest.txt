@@ -1,0 +1,2 @@
+there is a stupid test case
+https://leetcode.com/problems/word-search-ii/discuss/59851/Test-Case-a-a-a-doesn't-make-sense
