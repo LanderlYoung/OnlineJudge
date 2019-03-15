@@ -41,12 +41,12 @@ class Solution {
     }
 
     private fun buildTree(words: Array<String>): TrieNode {
-        val root = TrieNode('-')
+        val root = TrieNode()
 
         words.forEach { word ->
             var node = root
             word.forEach {
-                node = node.next[it - 'a'] ?: TrieNode(it).apply {
+                node = node.next[it - 'a'] ?: TrieNode().apply {
                     node.next[it - 'a'] = this
                 }
             }
@@ -56,7 +56,6 @@ class Solution {
     }
 
     private data class TrieNode(
-            val char: Char,
             var next: Array<TrieNode?> = Array(26) { null },
             var word: String? = null
     )
