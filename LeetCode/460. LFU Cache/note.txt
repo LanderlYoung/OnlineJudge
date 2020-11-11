@@ -1,0 +1,3 @@
+similar to LRUCache
+do a HashMap with all nodes arranged as a Dual-LinkedList
+and record frequency, on frequency change, re-sort the LL (and move it to higher priority)
