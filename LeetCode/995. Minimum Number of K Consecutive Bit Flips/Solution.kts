@@ -1,3 +1,5 @@
+package problem995
+
 class Solution {
     fun minKBitFlips(A: IntArray, K: Int): Int {
         var count = 0

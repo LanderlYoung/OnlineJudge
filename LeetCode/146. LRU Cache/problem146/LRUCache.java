@@ -1,3 +1,5 @@
+package problem146;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 

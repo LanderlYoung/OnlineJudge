@@ -1,3 +1,5 @@
+package problem65
+
 class Solution {
     fun isNumber(s: String): Boolean {
         val str = s.trim()

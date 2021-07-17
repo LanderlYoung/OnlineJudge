@@ -1,3 +1,5 @@
+package problem273;
+
 public class Solution {
     private static final int HUNDREN_NUM = 100;
     private static final int THOUSAND_NUM = 1000;

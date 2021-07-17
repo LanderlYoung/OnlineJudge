@@ -1,3 +1,5 @@
+package problem1002_1
+
 class Solution {
     fun commonChars(A: Array<String>): List<String> {
         val a = A.map { it.toList().sorted() }

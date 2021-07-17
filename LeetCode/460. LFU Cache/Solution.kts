@@ -1,9 +1,13 @@
+package problem460
+
+import java.util.TreeMap
+
 class LFUCache(capacity: Int) {
-    val age = 0;
-    val map = TreeMap<Entry, Int>()
+    private val age = 0
+    private val map = TreeMap<Entry, Int>()
 
     fun get(key: Int): Int {
-
+        TODO()
     }
 
     fun put(key: Int, value: Int) {

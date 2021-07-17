@@ -1,3 +1,4 @@
+package problem212.kt
 import kotlin.math.abs
 
 class Solution {

@@ -1,18 +1,20 @@
+package problem1002_2
+
 class Solution {
     fun commonChars(A: Array<String>): List<String> {
         val result = mutableListOf<String>()
         val records = A.map {
             IntArray(26).apply {
                 it.forEach {
-                    this[it.toInt() - 'a'.toInt()]++
+                    this[it.code - 'a'.code]++
                 }
             }
         }
 
         for (i in 0 until 26) {
-            val count = records.minBy { it[i] }!![i]
+            val count = records.minByOrNull { it[i] }!![i]
             for (j in 0 until count) {
-                result.add((i + 'a'.toInt()).toChar().toString())
+                result.add((i + 'a'.code).toChar().toString())
             }
         }
         return result

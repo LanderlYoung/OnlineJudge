@@ -1,3 +1,5 @@
+package problem149
+
 import kotlin.math.sqrt
 
 /**
@@ -25,7 +27,7 @@ class Solution {
             }
         }
 
-        val p = ks.values.maxBy { it.first } ?: return 0
+        val p = ks.values.maxByOrNull { it.first } ?: return 0
         val count = points.count { it in p.second }
 
         println(ks)

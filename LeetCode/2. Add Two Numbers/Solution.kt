@@ -1,3 +1,5 @@
+package problem2
+
 /**
  * Definition for singly-linked list.
  * class ListNode(var `val`: Int = 0) {
@@ -7,7 +9,7 @@
 class Solution {
     fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
         val head = ListNode(0)
-        
+
         var carry = 0
         var current = head
         var head1 = l1
@@ -27,7 +29,11 @@ class Solution {
             current = node
         }
 
-        
+
         return head.next
     }
+}
+
+class ListNode(var `val`: Int = 0) {
+    var next: ListNode? = null
 }
