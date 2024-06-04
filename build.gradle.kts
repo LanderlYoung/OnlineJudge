@@ -1,6 +1,6 @@
 plugins {
     java
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "2.0.0"
 }
 
 group = "org.example"
@@ -11,6 +11,7 @@ sourceSets {
         java {
             srcDirs(
                 *file("LeetCode").listFiles()!!
+                // file("LeetCode")
             )
         }
     }
