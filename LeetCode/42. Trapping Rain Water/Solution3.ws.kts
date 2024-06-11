@@ -1,12 +1,11 @@
 package problem42_2
 
 import kotlin.math.max
-import kotlin.math.min
 
 class Solution {
   fun trap(height: IntArray): Int {
     // helps with speed
-    if (height.isEmpty()) return 0;
+    if (height.isEmpty()) return 0
 
     var leftMax = 0
     var rightMax = 0

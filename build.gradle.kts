@@ -11,7 +11,6 @@ sourceSets {
         java {
             srcDirs(
                 *file("LeetCode").listFiles()!!
-                // file("LeetCode")
             )
         }
     }
