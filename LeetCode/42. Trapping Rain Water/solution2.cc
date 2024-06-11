@@ -25,17 +25,17 @@ public:
 
                 stack[sp] = -1; // for debug
                 sp--;
-                // stack.pop_back();
             }
 
             // sp++;
             stack[++sp] = i;
-            // stack.push_back(i);
         }
 
         return result;
     }
 };
+
+// test
 
 #include <iostream>
 

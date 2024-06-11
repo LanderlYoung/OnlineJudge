@@ -1,3 +1,5 @@
+import java.io.FileFilter
+
 plugins {
     java
     kotlin("jvm") version "2.0.0"
@@ -10,7 +12,7 @@ sourceSets {
     main {
         java {
             srcDirs(
-                *file("LeetCode").listFiles()!!
+                *file("LeetCode").listFiles(FileFilter { it.isDirectory }) ?: emptyArray()
             )
         }
     }
