@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Volumes/Code/personal/OnlineJudge/LeetCode/42. Trapping Rain Water",
-      "program": "/Volumes/Code/personal/OnlineJudge/LeetCode/42. Trapping Rain Water/build/Debug/outDebug"
+      "cwd": "/Volumes/Code/personal/OnlineJudge/LeetCode/13. Roman to Integer",
+      "program": "/Volumes/Code/personal/OnlineJudge/LeetCode/13. Roman to Integer/build/Debug/outDebug"
     }
   ]
 }

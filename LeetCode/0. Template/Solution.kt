@@ -1,8 +1,5 @@
 package problem0
 
-import jdk.nashorn.internal.objects.NativeRegExp.test
-import kotlin.math.exp
-
 class Solution {
     fun twoSum(nums: IntArray, target: Int): IntArray {
         val len = nums.size
@@ -28,7 +25,8 @@ fun test(
     expected: IntArray
     ) {
 
-    println("${Solution().twoSum(nums, target)} == ${expected}")
+    val result = Solution().twoSum(nums, target)
+    println("${result} == ${expected} -> ${result == expected}")
 }
 
 fun main() {
