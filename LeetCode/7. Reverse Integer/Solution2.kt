@@ -1,17 +1,13 @@
 package problem7_2
 
 class Solution {
-  companion object {
-    val overflowMin = Int.MIN_VALUE / 10
-    val overflowMax = Int.MAX_VALUE / 10
-  }
 
   fun reverse(x: Int): Int {
     var i = x
     var r = 0
     while (i != 0) {
       val v = i % 10
-      if (r > overflowMax || r < overflowMin) {
+      if (r > Int.MAX_VALUE / 10 || r < Int.MIN_VALUE / 10) {
         return 0
       }
       r = 10 * r + v

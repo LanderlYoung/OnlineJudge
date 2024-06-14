@@ -6,6 +6,8 @@ local.properties
 #gradel ndk plugin
 .externalNativeBuild
 
+.vscode/launch.json
+
 #ctags && cscope
 /tags
 /cscope.*
