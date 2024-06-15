@@ -10,7 +10,7 @@ version = "1.0-SNAPSHOT"
 
 sourceSets {
     main {
-        java {
+        kotlin {
             srcDirs(
                 *file("LeetCode").listFiles(FileFilter { it.isDirectory }) ?: emptyArray()
             )
