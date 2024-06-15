@@ -31,7 +31,8 @@ fun test(
 ) {
 
   val result = Solution().threeSum(input)
-  println("${input.contentToString()} -> ${result} == ${expected} -> ${result.toSet() == expected.toSet()}")
+  val eq = result.size == expected.size && result.toSet() == expected.toSet()
+  println("${input.contentToString()} -> ${result} == ${expected} -> ${eq}")
 }
 
 fun main() {

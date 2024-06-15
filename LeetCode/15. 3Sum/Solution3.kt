@@ -1,30 +1,41 @@
-package problem15_2
+package problem15_3
 
-// hash map
+// binary search
 class Solution {
   fun threeSum(nums: IntArray): List<List<Int>> {
     nums.sort()
-
-    val numFirstAppearedIndex = HashMap<Int, Int>()
-    nums.forEachIndexed { index, num ->
-      if (!numFirstAppearedIndex.contains(num)) {
-        numFirstAppearedIndex[num] = index
-      }
-    }
 
     val result = mutableSetOf<List<Int>>()
 
     for (i in 2..<nums.size) {
       for (j in 1..<i) {
-          val x = -(nums[i] + nums[j])
-          val index = numFirstAppearedIndex[x]
-          if (index != null && index < j) {
-            result += listOf(nums[index], nums[j], nums[i])
-          }
+        val x = -(nums[i] + nums[j])
+        val index = binarySearch(nums, j, x)
+        if (index != -1) {
+          result += listOf(nums[index], nums[j], nums[i])
         }
+      }
     }
 
     return result.toList()
+  }
+
+  private inline fun binarySearch(nums: IntArray, size: Int, value: Int): Int {
+    var left = 0
+    var right = size - 1
+    while (left <= right) {
+      val mid = (left + right) / 2
+
+      if (nums[mid] == value) {
+        return mid
+      } else if (nums[mid] > value) {
+        right = mid - 1
+      } else {
+        left = mid + 1
+      }
+    }
+
+    return -1
   }
 }
 
