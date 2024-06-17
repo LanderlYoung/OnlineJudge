@@ -12,7 +12,6 @@ sourceSets {
     main {
         kotlin {
             srcDirs(
-                file("LeetCode"),
                 *file("LeetCode").listFiles(FileFilter { it.isDirectory }) ?: emptyArray()
             )
         }
