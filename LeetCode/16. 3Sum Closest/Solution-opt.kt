@@ -1,6 +1,6 @@
 package problem16_2
 
-import timedMain
+import timedTest
 import kotlin.math.abs
 
 class Solution {
@@ -59,7 +59,7 @@ fun test(
   println("${input.contentToString()} -> ${result} == ${expected} -> ${result == expected}")
 }
 
-fun main() = timedMain {
+fun main() = timedTest {
   test(intArrayOf(0, 3, 97, 102, 200), 300, 300)
   test(intArrayOf(1, 1, 1, 0), 100, 3)
   test(intArrayOf(0, 1, 2), 3, 3)
