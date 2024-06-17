@@ -12,6 +12,7 @@ sourceSets {
     main {
         kotlin {
             srcDirs(
+                file("LeetCode"),
                 *file("LeetCode").listFiles(FileFilter { it.isDirectory }) ?: emptyArray()
             )
         }
@@ -30,3 +31,7 @@ dependencies {
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }
+
+// workaround IDEA can't detect code change before build
+tasks.getByName("compileKotlin")
+    .dependsOn(tasks.getByName("clean"))

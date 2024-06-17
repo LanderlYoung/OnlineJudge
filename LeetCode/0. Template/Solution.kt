@@ -7,7 +7,6 @@ class Solution {
 }
 
 // test
-
 fun test(
     // input
     input: Int,
