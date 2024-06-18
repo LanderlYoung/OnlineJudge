@@ -8,7 +8,9 @@ import java.io.File
 class LFUCache(private val capacity: Int) {
   private val map = HashMap<Int, Entry>()
 
-  // dual-linked-list with ascending order by Bucket.useCount
+  /**
+   * dual-linked-list with ascending order by Bucket.useCount
+   */
   private val head = Bucket(0)
 
   val size: Int
@@ -39,7 +41,9 @@ class LFUCache(private val capacity: Int) {
 
   private fun increaseEntryUseCount(entry: Entry) {
     val bucket = entry.bucket!!
+    // remove from old bucket
     bucket.deleteEntry(entry)
+    // obtain new bucket with useCount++, put to the head of it (most recent used)
     obtainNextBucket(bucket).appendEntryToHead(entry)
 
     if (bucket.isEmpty) {
@@ -49,6 +53,7 @@ class LFUCache(private val capacity: Int) {
 
   private fun insert(key: Int, value: Int) {
     val entry = Entry(key, value)
+    // obtain bucket, whose useCount == 1
     obtainNextBucket(head).appendEntryToHead(entry)
 
     // maintain map
@@ -56,6 +61,9 @@ class LFUCache(private val capacity: Int) {
   }
 
   private fun dropEntry() {
+    // drop:
+    // 1. the least frequently used (leftmost bucket)
+    // 2. the lease used (tail inside a bucket)
     val leastUsedBucket = head.next ?: return
     val leastRecentUsed = leastUsedBucket.tail
 
@@ -73,9 +81,11 @@ class LFUCache(private val capacity: Int) {
     val n = bucket.next
 
     if (n != null && n.useCount == useCount) {
+      // already have it
       return n
     }
 
+    // didn't have it, add a new one
     val newBucket = Bucket(useCount)
     // bucket <-> newBucket <-> n
 
@@ -108,6 +118,7 @@ class LFUCache(private val capacity: Int) {
       get() = head == tail
 
     fun deleteEntry(e: Entry) {
+      // simple dual-linked operation
       check(e != head) { "wtf" }
 
       e.bucket = null
@@ -128,6 +139,7 @@ class LFUCache(private val capacity: Int) {
     }
 
     fun appendEntryToHead(e: Entry) {
+      // simple dual-linked operation
       e.bucket = this
 
       // head <-> e <-> n

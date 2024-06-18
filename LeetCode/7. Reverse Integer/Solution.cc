@@ -18,3 +18,7 @@ public:
     return r;
   }
 };
+
+int main() {
+
+}

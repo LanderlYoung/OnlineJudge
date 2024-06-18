@@ -5,6 +5,9 @@ local.properties
 
 #gradel ndk plugin
 .externalNativeBuild
+cmake-build-debug
+
+compile_commands.json
 
 */.vscode/launch.json
 
