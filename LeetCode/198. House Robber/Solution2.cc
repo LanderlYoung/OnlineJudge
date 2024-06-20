@@ -16,11 +16,12 @@ class Solution {
     //    -- 1. don't take f(i), so it's f(i - 1)
     //    -- 2. take f(i), so it's f(i - 2) + nums[i - 1]
     // either way, we take the bigger one
-    // so the formula is: f(i) = max(f(i - 1), f(i - 2) + nums[i - 1])
+    // so the formula is: 
+    //    f(i) = max(f(i - 1), f(i - 2) + nums[i - 1])
 
     /// step 2.1: be careful about edge condition
     //  - f(0) = 0
-    //  - f(1) = num[0]
+    //  - f(o) = num[0]
 
     /// step 3: choose calculate direction
     //  1. bottom up
@@ -31,10 +32,13 @@ class Solution {
     //     a memo data structure is need.
 
     /// step 4: optimize space usage
-    //    from the recursion formula :f(i) = max(f(i - 1), f(i - 2) + nums[i - 1])
-    //    we noticed that only preview TWO result are used, the more previously items
+    //    from the recursion formula: 
+    //        f(i) = max(f(i - 1), f(i - 2) + nums[i - 1])
+    //
+    //    we noticed that only TWO previously results are used, the more previously items
     //    are not really necessary.
     //    So we change from using an array to using two values
+    //       prev2 -> prev1 -> [i]
     //
     //    int prev1, prev2;
     //    for (i in 2..nums.size) {
