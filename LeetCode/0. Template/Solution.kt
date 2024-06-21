@@ -6,18 +6,19 @@ class Solution {
     }
 }
 
-// test
-fun test(
-    // input
-    input: Int,
-
-    // expected
-    expected: Int,
-) {
-
-    val result = Solution().twoSum(input)
-    println("$input -> ${result} == ${expected} -> ${result == expected}")
-}
-
 fun main() {
+    // test
+    fun test(
+        // input
+        input: Int,
+
+        // expected
+        expected: Int,
+    ) {
+
+        val result = Solution().twoSum(input)
+        println("$input -> ${result} == ${expected} -> ${result == expected}")
+    }
+
+
 }
