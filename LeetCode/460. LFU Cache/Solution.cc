@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <list>
+#include <vector>
 #include <unordered_map>
 
 struct Entry;
