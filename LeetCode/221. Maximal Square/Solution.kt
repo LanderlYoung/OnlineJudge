@@ -3,11 +3,13 @@ package problem221
 import kotlin.math.max
 import kotlin.math.min
 
+// failed because sub-problem in not clarified enough
 class Solution {
   /**
    * step 1: define sub-problem
    *   f(i, j) == H*W -> means when we use f(i, j) as right-bottom corner, this is a W*H sized Rectangle contains only 1
    *   so the final answer should be max(min(f(i,j).H, f(i,j).H) ^ 2)
+   *   -- f(i, j) may be made up to 3 kind of rectangles, which failed to express in a single table
    *
    * step 2: define recursion formula
    *   f(i, j) = if(matrix[i][j] == '0') [0, 0] else {
@@ -17,8 +19,6 @@ class Solution {
    *          h = min(top.h + 1, left.h)
    *       else (0, 0)
    *   }
-   *
-   *
    */
   fun maximalSquare(matrix: Array<CharArray>): Int {
     val dp = Array(matrix.size) {
@@ -34,17 +34,17 @@ class Solution {
           val left = dp.getOrNull(i)?.getOrNull(j - 1) ?: (0 to 0)
 
           val width =
-            if (top.first == 0) {
-              left.first + 1
+            if (top.width == 0) {
+              left.width + 1
             } else {
-              min(top.first, left.first + 1)
+              min(top.width, left.width + 1)
             }
 
           val height =
-            if (left.second == 0) {
-              top.second + 1
+            if (left.height == 0) {
+              top.height + 1
             } else {
-              min(top.second + 1, left.second)
+              min(top.height + 1, left.height)
             }
 
           dp[i][j] = width to height
@@ -64,6 +64,8 @@ class Solution {
 
     return maxArea
   }
+  private val Pair<Int,Int>.width:Int get() = first
+  private val Pair<Int,Int>.height:Int get() = first
 }
 
 fun main() {
