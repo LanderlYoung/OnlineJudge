@@ -1,0 +1,18 @@
+#! /bin/bash
+
+cd "$(dirname -- "${BASH_SOURCE[0]}")"
+cd LeetCode
+
+PROBLEM=$1
+
+NUMBER=$(echo "$PROBLEM" | sed -E 's/([0-9]).*/\1/g')
+
+echo number is $NUMBER x
+echo "$PROBLEM"
+
+ cp -av "0. Template" "$PROBLEM"
+
+cd "$PROBLEM"
+if [[ x${NUMBER} != x ]]; then
+  sed -i -E "s/package problem0/package problem${NUMBER}/g" Solution.kt
+fi
