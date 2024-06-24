@@ -1,6 +1,7 @@
 package problem139
 
 import shouldBeEqualTo
+import timedTest
 
 // O(N^2) WTF: Time Limit Exceeded
 class Solution {
@@ -75,7 +76,7 @@ class Solution {
   }
 }
 
-fun main() {
+fun main() = timedTest {
   fun test(
     input: String,
     wordDict: List<String>,
@@ -133,4 +134,11 @@ fun main() {
     listOf("apple", "pen", "pine"),
     true
   )
+
+  // TLE
+  // test(
+  //    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+  //   listOf("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"),
+  //   false
+  // )
 }

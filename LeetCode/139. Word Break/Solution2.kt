@@ -4,74 +4,34 @@ import shouldBeEqualTo
 
 // lets try DP???
 class Solution {
+  /**
+   * Step 1: define sub-problem
+   *  f(i) means can s[0..<i] be a Word break
+   *
+   * Step 2: define recursion formula
+   *  f(i + 1) = for i in 0..i+1, any f(j) && s[j ..< i+1] in wordDict
+   */
   fun wordBreak(s: String, wordDict: List<String>): Boolean {
-    val root = buildTrierNode(wordDict)
+    val words = wordDict.toHashSet()
 
-    val recallStack = ArrayDeque<Int>()
-    var node = root
-    var i = 0
-    while (true) {
-      // reach end, and is full world, success
-      if (i == s.length && node.isFullWord) {
-        return true
-      }
+    val memo = BooleanArray(s.length + 1)
+    memo[0] = true
 
-      // in the process, continue searching
-      if (i < s.length) {
-        val char = s[i]
-        val child = node.peekChild(char)
-        if (child != null) {
-          if (child.isFullWord) {
-            recallStack.addLast(i + 1)
-          }
-          node = child
-          i++
-          continue
+    for (i in 1..s.length) {
+      for (j in 0..i) {
+
+        if (
+          memo[j] &&  // [0..<j] is Word Break
+          words.contains(s.substring(j, i)) // [j..<i] is Word Bread
+          ) {
+          // so [0..<i] is Word Break
+          memo[i] = true
+          break
         }
       }
-
-      // failed search, try recall
-      if (!recallStack.isEmpty()) {
-        // reset state
-        node = root
-        i = recallStack.removeLast()
-      } else {
-        return false
-      }
-    }
-  }
-
-  private fun buildTrierNode(wordDict: List<String>): TrieNode {
-    val root = TrieNode('!')
-    wordDict.forEach { word ->
-      var current = root
-      word.forEach { char ->
-        current = current.createChild(char)
-      }
-      current.isFullWord = true
     }
 
-    return root
-  }
-
-  private data class TrieNode(
-    val char: Char,
-  ) {
-    val next = Array<TrieNode?>(26) { null }
-
-    var isFullWord: Boolean = false
-
-    fun createChild(c: Char): TrieNode {
-      val index = c - 'a'
-      if (next[index] == null) {
-        next[index] = TrieNode(c)
-      }
-      return next[index]!!
-    }
-
-    fun peekChild(c: Char): TrieNode? {
-      return next[c - 'a']
-    }
+    return memo[s.length]
   }
 }
 
@@ -109,7 +69,6 @@ fun main() {
     true
   )
 
-
   test(
     "leetcode",
     listOf("leet", "code"),
@@ -129,8 +88,20 @@ fun main() {
   )
 
   test(
+    "catsanddog",
+    listOf("cats", "dog", "sand", "cat"),
+    true
+  )
+
+  test(
     "penpineappleapplepen",
     listOf("apple", "pen", "pine"),
     true
+  )
+
+  test(
+    "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+    listOf("a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"),
+    false
   )
 }
