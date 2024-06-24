@@ -7,12 +7,15 @@ PROBLEM=$1
 
 NUMBER=$(echo "$PROBLEM" | sed -E 's/([0-9]).*/\1/g')
 
-echo number is $NUMBER x
-echo "$PROBLEM"
+echo problem NO.$NUMBER -- "$PROBLEM"
 
- cp -av "0. Template" "$PROBLEM"
+ cp -a "0. Template" "$PROBLEM"
 
 cd "$PROBLEM"
 if [[ x${NUMBER} != x ]]; then
-  sed -i -E "s/package problem0/package problem${NUMBER}/g" Solution.kt
+  if [[ $(uname -s) == Darwin ]]; then
+    sed -i '' "s/package problem0/package problem${NUMBER}/g" Solution.kt
+  else
+    sed -i "s/package problem0/package problem${NUMBER}/g" Solution.kt
+  fi
 fi
