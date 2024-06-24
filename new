@@ -5,7 +5,7 @@ cd LeetCode
 
 PROBLEM=$1
 
-NUMBER=$(echo "$PROBLEM" | sed -E 's/([0-9]).*/\1/g')
+NUMBER=$(echo "$PROBLEM" | sed -E 's/([0-9]+).*/\1/g')
 
 echo problem NO.$NUMBER -- "$PROBLEM"
 
