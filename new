@@ -12,6 +12,9 @@ echo problem NO.$NUMBER -- "$PROBLEM"
  cp -a "0. Template" "$PROBLEM"
 
 cd "$PROBLEM"
+
+rm Solution.cc # don't add cpp solution be default
+
 if [[ x${NUMBER} != x ]]; then
   if [[ $(uname -s) == Darwin ]]; then
     sed -i '' "s/package problem0/package problem${NUMBER}/g" Solution.kt
