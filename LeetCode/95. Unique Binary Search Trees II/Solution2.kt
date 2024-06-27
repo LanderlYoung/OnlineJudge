@@ -11,15 +11,13 @@ package problem95_2
  * }
  */
 class Solution {
-  // n
-  private val dp = arrayOfNulls<List<TreeNode?>?>(9)
 
   fun generateTrees(n: Int): List<TreeNode?> {
+    val dp = arrayOfNulls<List<TreeNode?>?>(n + 1)
     dp[0] = listOf(null)
     dp[1] = listOf(TreeNode(1))
 
     for (i in 1..n) {
-
       val list = mutableListOf<TreeNode?>()
       for (j in 0..i - 1) {
         // part1 -> f(1 .. j)
@@ -52,9 +50,8 @@ class Solution {
 
   // <root, right most>
   private fun clone(node: TreeNode?, offset: Int): Pair<TreeNode, TreeNode>? {
-    if (node == null) {
-      return null
-    }
+    if (node == null) return null
+
     val n = TreeNode(node.`val` + offset)
     n.left = clone(node.left, offset)?.first
     val r = clone(node.right, offset)
