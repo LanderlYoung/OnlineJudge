@@ -60,6 +60,7 @@ fun main() {
   test(1, 1)
   test(2, 2)
   test(3, 5)
+  test(4, 14)
 
 
 }
