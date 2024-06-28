@@ -1,6 +1,3 @@
-#include <algorithm>  // for std::min
-#include <limits>
-
 struct TreeNode {
   int val;
   TreeNode *left;
@@ -9,6 +6,9 @@ struct TreeNode {
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
   TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
+#include <algorithm>  // for std::min
+#include <limits>
 
 class Solution {
   int max = std::numeric_limits<int>::min();
