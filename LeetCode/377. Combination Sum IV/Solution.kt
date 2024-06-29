@@ -5,7 +5,7 @@ import shouldBeEqualTo
 // thanks to https://leetcode.cn/problems/combination-sum-iv/solutions/2706336/ben-zhi-shi-pa-lou-ti-cong-ji-yi-hua-sou-y52j/?envType=study-plan-v2&envId=dynamic-programming
 // 1. this is actually more like Climb Ladder than Coin Change
 // 2. this is more a permutation problem than a combination one
-// 3. just like climb ladder, how to reach target by climb any of [nu
+// 3. just like climb ladder, how to reach target by climb any of [nums..] steps each time
 class Solution {
   fun combinationSum4(nums: IntArray, target: Int): Int {
     val dp = IntArray(target + 1)
