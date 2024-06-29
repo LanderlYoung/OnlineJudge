@@ -22,11 +22,11 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU
     string(APPEND CMAKE_EXE_LINKER ${UNIT_TEST_ASAN_FLAGS})
 endif ()
 
-FILE(GLOB_RECURSE cpp_files *.cc)
-FOREACH(file_path ${cpp_files})
-    GET_FILENAME_COMPONENT(dir ${file_path} DIRECTORY)
-    GET_FILENAME_COMPONENT(file_name ${file_path} NAME_WE)
-    GET_FILENAME_COMPONENT(dir_name ${dir} NAME)
+file(GLOB_RECURSE cpp_files *.cc)
+foreach(file_path ${cpp_files})
+    get_filename_component(dir ${file_path} DIRECTORY)
+    get_filename_component(file_name ${file_path} NAME_WE)
+    get_filename_component(dir_name ${dir} NAME)
 
     string(REPLACE "." "" dir_name ${dir_name})
     string(REPLACE " " "_" dir_name ${dir_name})
@@ -39,5 +39,5 @@ FOREACH(file_path ${cpp_files})
     message(STATUS "add executable ${target} -> ${file_path}")
 
    add_executable(${target} ${file_path})
-ENDFOREACH()
+endforeach()
 
