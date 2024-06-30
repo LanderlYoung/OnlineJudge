@@ -4,16 +4,15 @@ import equalsWithoutOrder
 import shouldBeEqualToWithoutOrder
 
 class Solution {
-  private val paths = ArrayList<List<Int>>()
-  private val path = ArrayList<Int>()
-
   fun allPathsSourceTarget(graph: Array<IntArray>): List<List<Int>> {
+    val paths = ArrayList<List<Int>>()
+    val path = ArrayList<Int>()
+
     fun dfs(node: Int) {
       path.add(node)
 
-      if (node == graph.size - 1) {
-        // reaches end
-        paths.add(path.toList())
+      if (node == graph.size - 1) { // reaches end
+        paths.add(ArrayList(path)) // remember to make a copy
       } else {
         val next = graph[node]
         for (n in next) {
@@ -21,7 +20,7 @@ class Solution {
         }
       }
 
-      path.removeLast() // remove n
+      path.removeLast() // remove node
     }
 
     dfs(0)
