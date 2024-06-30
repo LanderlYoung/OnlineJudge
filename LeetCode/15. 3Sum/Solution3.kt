@@ -20,7 +20,7 @@ class Solution {
     return result.toList()
   }
 
-  private inline fun binarySearch(nums: IntArray, size: Int, value: Int): Int {
+  private fun binarySearch(nums: IntArray, size: Int, value: Int): Int {
     var left = 0
     var right = size - 1
     while (left <= right) {
