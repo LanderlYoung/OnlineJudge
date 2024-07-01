@@ -10,7 +10,6 @@ import java.io.File
 class Solution {
 
   fun findAllPeople(n: Int, meetings: Array<IntArray>, firstPerson: Int): List<Int> {
-    // without rank
     val people = IntArray(n) { it }
     val rank = IntArray(n)
 
