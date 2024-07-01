@@ -46,7 +46,7 @@ class Solution {
     }
 
     val result = mutableListOf<Int>()
-    people.forEachIndexed { who, time ->
+    people.forEachIndexed { who, _ ->
       if (people[who]) result += who
     }
     return result
