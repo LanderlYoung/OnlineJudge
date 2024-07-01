@@ -5,6 +5,11 @@ cd LeetCode
 
 PROBLEM=$1
 
+if [[ -z $PROBLEM ]]; then
+  echo "problem not specified, eg. \"1. Two Sum\""
+  exit 1
+fi
+
 NUMBER=$(echo "$PROBLEM" | sed -E 's/([0-9]+).*/\1/g')
 
 echo problem NO.$NUMBER -- "$PROBLEM"

@@ -1,10 +1,14 @@
 import kotlin.time.measureTime
 
-inline fun timedTest(block: () -> Unit) {
+inline fun timedTest(name: String = "", block: () -> Unit) {
   val time = measureTime(block)
 
   println()
-  println("cost time $time")
+  if (name.isEmpty()) {
+    println("cost time $time")
+  } else {
+    println("$name cost time $time")
+  }
 }
 
 infix fun <T> T.shouldBeEqualTo(value: T) {
