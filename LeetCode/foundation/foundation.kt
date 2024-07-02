@@ -26,3 +26,12 @@ infix fun <T> Collection<T>.shouldBeEqualToWithoutOrder(value: Collection<T>) {
 infix fun <T> Collection<T>.equalsWithoutOrder(value: Collection<T>): Boolean {
   return this.size == value.size && HashSet(this) == HashSet(value)
 }
+
+// eg: "[[855,82,158],[17,719,430]]"
+fun parserIntMatrix(
+  input: String,
+): Array<IntArray> {
+  return input.trimStart('[', ' ').trimEnd(']', ' ').split("],[")
+    .map { it.split(',').map { it.toInt() }.toIntArray() }
+    .toTypedArray<IntArray>()
+}

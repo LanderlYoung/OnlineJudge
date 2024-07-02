@@ -1,0 +1,18 @@
+#! /bin/bash
+if [[ $(uname) == "Darwin" ]]; then
+  clipcopy='pbcopy'
+  clippast='pbpaste'
+else
+  clipcopy='xclip -selection clipboard'
+  clippast='xclip -selection clipboard -o'
+fi
+
+echo "clipboard -> input >>>"
+$clippast
+
+cd "$(dirname -- "${BASH_SOURCE[0]}")"
+$clippast | kotlin convertArray.kts | $clipcopy
+
+echo
+echo "output -> clipboard >>>"
+$clippast
