@@ -28,6 +28,20 @@ infix fun <T> Collection<T>.equalsWithoutOrder(value: Collection<T>): Boolean {
 }
 
 /**
+ * parse 1 dimension matrix
+ * eg: "[855,82,158]"
+ */
+fun matrix1d(
+  input: String,
+): IntArray {
+  return input
+    .trim('[', ']', ' ')
+    .split(',')
+    .map { it.toInt() }
+    .toIntArray()
+}
+
+/**
  * parse 2 dimension matrix
  * eg: "[[855,82,158],[17,719,430]]"
  */
