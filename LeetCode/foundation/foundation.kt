@@ -35,8 +35,7 @@ fun matrix1d(
   input: String,
 ): IntArray {
   return input
-    .trim('[', ']', ' ')
-    .split(',')
+    .trim('[', ']', ' ').split(',')
     .map { it.toInt() }
     .toIntArray()
 }
