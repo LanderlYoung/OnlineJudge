@@ -53,3 +53,31 @@ fun matrix2d(
     .map { matrix1d(it) }
     .toTypedArray<IntArray>()
 }
+
+/**
+ * parse 1 dimension matrix
+ * eg: ["A","B","C"]
+ */
+fun smatrix1d(
+  input: String,
+): Array<String> {
+  return (input
+    .trim('[', ']', ' ')
+    .takeIf { it.isNotEmpty() } ?: return arrayOf())
+    .split(',')
+    .map { it.trim('"') }
+    .toTypedArray()
+}
+
+/**
+ * parse 2 dimension matrix
+ * eg: [["A","B"],["C"],["B","C"],["D"]]
+ */
+fun smatrix2d(
+  input: String,
+): Array<Array<String>> {
+  return input.trimStart('[', ' ').trimEnd(']', ' ').split("],[")
+    .map { smatrix1d(it) }
+    .toTypedArray()
+}
+

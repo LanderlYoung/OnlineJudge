@@ -2,6 +2,7 @@ package problem1311
 
 import matrix2d
 import shouldBeEqualTo
+import smatrix2d
 
 class Solution {
   fun watchedVideosByFriends(
@@ -52,9 +53,7 @@ fun main() {
     expected: List<String>,
   ) {
     val wv: List<List<String>> =
-      watchedVideos.trim('[', ']').split("],[").map {
-        it.split(',').map { it.trim('"') }
-      }
+      smatrix2d(watchedVideos).map { it.toList() }.toList()
 
     val result = Solution().watchedVideosByFriends(wv, matrix2d(friends), id, level)
     println("$ -> ${result} == ${expected} -> ${result == expected}")
