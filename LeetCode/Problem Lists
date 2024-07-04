@@ -11,3 +11,8 @@ https://leetcode.cn/circle/discuss/0viNMK/
 # 4. reference
 https://github.com/EndlessCheng/codeforces-go/blob/master/leetcode/SOLUTIONS.md
 https://zerotrac.github.io/leetcode_problem_rating/#/
+
+# Algorithm learning
+Dynamic Programming: 198. House Robber
+Dijkstra shortest path: 743. Network Delay Time
+Floyd-Warshall shortest Path: 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance
