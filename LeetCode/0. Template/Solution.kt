@@ -14,7 +14,7 @@ fun main() {
         expected: Int,
     ) {
         val result = Solution().twoSum(input)
-        println("$input -> ${result} == ${expected} -> ${result == expected}")
+        println("$input -> $result == $expected -> ${result == expected}")
         result shouldBeEqualTo expected
     }
 
