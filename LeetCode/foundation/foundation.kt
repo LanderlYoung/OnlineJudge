@@ -34,9 +34,7 @@ infix fun <T> Collection<T>.equalsWithoutOrder(value: Collection<T>): Boolean {
 fun matrix1d(
   input: String,
 ): IntArray {
-  return (input
-    .trim('[', ']', ' ')
-    .takeIf { it.isNotEmpty() } ?: return intArrayOf())
+  return (input.trim('[', ']', ' ').takeIf { it.isNotEmpty() } ?: return intArrayOf())
     .split(',')
     .map { it.toInt() }
     .toIntArray()
@@ -49,7 +47,8 @@ fun matrix1d(
 fun matrix2d(
   input: String,
 ): Array<IntArray> {
-  return input.trimStart('[', ' ').trimEnd(']', ' ').split("],[")
+  return (input.trimStart('[', ' ').trimEnd(']', ' ').takeIf { it.isNotEmpty() } ?: return emptyArray())
+    .split("],[")
     .map { matrix1d(it) }
     .toTypedArray<IntArray>()
 }
@@ -76,7 +75,8 @@ fun smatrix1d(
 fun smatrix2d(
   input: String,
 ): Array<Array<String>> {
-  return input.trimStart('[', ' ').trimEnd(']', ' ').split("],[")
+  return (input.trimStart('[', ' ').trimEnd(']', ' ').takeIf { it.isNotEmpty() } ?: return emptyArray())
+    .split("],[")
     .map { smatrix1d(it) }
     .toTypedArray()
 }
