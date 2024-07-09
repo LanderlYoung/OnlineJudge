@@ -1,7 +1,11 @@
 import kotlin.time.measureTime
 
-inline fun timedTest(name: String = "", block: () -> Unit) {
-  val time = measureTime(block)
+inline fun timedTest(name: String = "", repeat: Int = 0, block: () -> Unit) {
+  val time = measureTime {
+    repeat(repeat) {
+      block()
+    }
+  }
 
   println()
   if (name.isEmpty()) {
